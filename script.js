@@ -41,7 +41,7 @@ const profile = {
   education: "Diploma in Occupational Therapy, Kenya Medical Training College (KMTC), Machakos",
   research: {
     title: "Effects of Burn Injury on Activities of Daily Living among Patients Aged 19–60 Years at Kenyatta National Hospital.",
-    description: "She took part in data collection, analysis and interpretation, and developed skills in research, communication and professional documentation."
+    description: "I took part in data collection, analysis and interpretation, and developed skills in research, communication and professional documentation."
   },
   sdgs: [
     { number: "3", label: "Good Health & Well-being", colour: "#3FA535", note: "Supporting health, participation and independence through occupational therapy." },
