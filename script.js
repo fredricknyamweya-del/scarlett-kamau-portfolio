@@ -133,6 +133,29 @@ profile.sdgs.forEach((sdg) => {
   sdgList.appendChild(card);
 });
 
+/* Light and dark theme toggle, with saved preference support. */
+const themeToggle = qs("#theme-toggle");
+const savedTheme = (() => {
+  try { return localStorage.getItem("portfolio-theme"); }
+  catch (_error) { return null; }
+})();
+const preferredTheme = savedTheme || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+
+const applyTheme = (theme) => {
+  document.body.dataset.theme = theme;
+  const dark = theme === "dark";
+  themeToggle.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
+  themeToggle.setAttribute("title", dark ? "Switch to light mode" : "Switch to dark mode");
+};
+applyTheme(preferredTheme);
+
+themeToggle.addEventListener("click", () => {
+  const nextTheme = document.body.dataset.theme === "dark" ? "light" : "dark";
+  applyTheme(nextTheme);
+  try { localStorage.setItem("portfolio-theme", nextTheme); }
+  catch (_error) { /* Theme still works when storage is unavailable. */ }
+});
+
 /* Mobile navigation */
 const menuToggle = qs(".menu-toggle");
 const navLinks = qs("#nav-links");
