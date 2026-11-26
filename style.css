@@ -191,7 +191,7 @@ a.contact-row { text-decoration: underline; text-decoration-color: var(--coral);
   .contact-actions .button { width: 100%; }
   .copy-feedback { text-align: center; }
   .footer-inner { display: grid; grid-template-columns: 1fr auto; }
-  .footer-location, .footer-email { grid-column: 1 / -1; }
+  .footer-built, .footer-location, .footer-email { grid-column: 1 / -1; }
 }
 
 @media (prefers-reduced-motion: reduce) {
