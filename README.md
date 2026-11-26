@@ -2,7 +2,7 @@
 
 A single-page portfolio website for **Scarlett Wanjiru Kamau**, an Occupational Therapy graduate based in Nairobi, Kenya. It presents her clinical experience, skills, education, research and commitment to the Sustainable Development Goals, with direct links to her LinkedIn profile and email.
 
-**Live site:** https://fredricknyamweya-del.github.io/scarlett-kamau-portfolio/
+**Live site:** https://wanjirukamauportfolio.onrender.com/
 
 ## Features
 
