@@ -142,18 +142,28 @@ const savedTheme = (() => {
 const preferredTheme = savedTheme || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
 
 const applyTheme = (theme) => {
+  document.documentElement.dataset.theme = theme;
   document.body.dataset.theme = theme;
   const dark = theme === "dark";
   themeToggle.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
   themeToggle.setAttribute("title", dark ? "Switch to light mode" : "Switch to dark mode");
+  qs("#theme-color").setAttribute("content", dark ? "#10243e" : "#fff7f1");
 };
 applyTheme(preferredTheme);
 
 themeToggle.addEventListener("click", () => {
-  const nextTheme = document.body.dataset.theme === "dark" ? "light" : "dark";
+  const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
   applyTheme(nextTheme);
   try { localStorage.setItem("portfolio-theme", nextTheme); }
   catch (_error) { /* Theme still works when storage is unavailable. */ }
+});
+
+const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
+systemTheme.addEventListener("change", (event) => {
+  let savedThemeValue = null;
+  try { savedThemeValue = localStorage.getItem("portfolio-theme"); }
+  catch (_error) { /* Keep following the system preference. */ }
+  if (!savedThemeValue) applyTheme(event.matches ? "dark" : "light");
 });
 
 /* Mobile navigation */

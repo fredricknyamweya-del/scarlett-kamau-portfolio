@@ -8,6 +8,16 @@
   <meta property="og:description" content="Occupational Therapy graduate focused on paediatric and rehabilitation care.">
   <meta property="og:type" content="website">
   <title>Scarlett Wanjiru Kamau | Occupational Therapy</title>
+  <meta name="theme-color" id="theme-color" content="#fff7f1">
+  <script>
+    (() => {
+      try {
+        const saved = localStorage.getItem("portfolio-theme");
+        const theme = saved || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.dataset.theme = theme;
+      } catch (_error) { /* Use the light theme if storage is unavailable. */ }
+    })();
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
